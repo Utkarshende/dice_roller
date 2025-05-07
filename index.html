@@ -1,0 +1,185 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>
+            Dice roller
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       
+        <style>
+            .body
+            {
+                background-color: #fcecd0;
+                display:flex;
+            }
+            .container{
+                background-color: #F3C623;
+                border: 8px solid #FA812F;
+                border-radius: 50px;    
+                height: 600px;
+                width: 650px;
+                box-shadow: 0 0 5px 5px #FA812F;
+                margin:50px auto;
+            }
+            .heading{
+                height: 500px;
+                width: 50px;
+                padding: 10px;
+              font-size:45px;
+              margin-top: -20px;
+              margin-left: -5px;
+              text-shadow: 4px 6px 4px  #FFB22C;
+              color: #ee6307;
+              
+            }
+            .dice-img{
+                height: 310px;
+                width: 310px;
+                display: block;
+                margin: 60px auto;
+                border-radius: 20px;
+            }
+            .roll{
+                height: fit-content;
+                width: fit-content;
+                background-color: #FFB22C;
+                color: #ee6307;
+                font-size: 40px;
+                border: 6px solid #ee6307;
+                box-shadow: 0 0 2px 2px #ee6307;
+                display: block;
+                text-align: center;
+                margin:40px auto;
+                border-radius: 10px;  
+            }
+            .roll:hover{
+                cursor: pointer;
+                box-shadow:0 0 5px 10px #fcecd0 ;
+                border: none;
+                
+            }
+            .btn-container{
+                display: flex;
+            }
+            .dice-gif{
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                margin-top: 15px;
+            }
+            .font-family {  
+                font-family: "Schoolbell", cursive;
+                font-weight: 900;
+                font-style: normal;
+            }
+
+@media (max-width:600px){ 
+    .body{
+        display:flex;
+        background-color: #fcecd0;  
+    }
+    .dice-img{
+    height: 200px;
+    width: 200px;
+    margin-top: 40px;
+    }
+    .container{
+        height: 300px;
+        width: 300px;
+        margin-top: 120px;
+       
+    }
+    .roll{
+        font-size: 25px;
+        margin-top: 80px;
+       
+    }
+    .roll:hover
+     {
+        background-color: #fcecd0;                  
+        border: 4px solid #ee6307;
+       border-radius: 15px;
+      
+     }
+
+    .dice-gif{
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            margin-top:5px;
+            margin-bottom: -5px;
+    }
+}
+    </style>
+    </head>
+    <body class="body">
+        <div>
+        </div>
+        <h1 class="heading font-family">
+            D<br>
+            I <br>
+            C <br>
+            E<br>
+            <img src="./rolling.gif" class="dice-gif">
+            <br> R
+            <br>O
+            <br>L
+            <br>L
+            <br>E
+            <br>R
+        </h1>
+        <div class="container">
+           
+            <img src="./dices.png" class="dice-img" id="diceimg">
+            <div class="btn-container">
+        
+            <button class="roll font-family"onclick="reset()">
+                Reset
+            </button>
+            <button class="roll font-family" onclick="diceRoll()">
+                Roll a dice
+            </button>
+        </div>
+        </div>
+       <script>
+       function diceRoll(){
+        const min=1;
+        const max=6;
+        const randomNum = Math.floor(Math.random() * ( max - min + 1 )) + min;
+
+        const diceImage=document.getElementById("diceimg");
+        diceImage
+       
+        if(randomNum ==1)
+        {
+          diceImage.src="./1.png" ;  
+        }
+        else if(randomNum==2)
+        {
+            diceImage.src="./2.png";   
+        }
+        else if(randomNum==3)
+        {
+            diceImage.src="./3.png";
+        }
+        else if(randomNum==4)
+        {
+            diceImage.src="./4.png";
+        }
+         else if(randomNum==5)
+        {
+            diceImage.src="./5.png";
+        } 
+        else {
+                diceImage.src ="./6.png";
+            }
+            }
+        function reset(){
+        const diceImage=document.getElementById("diceimg");
+        diceImage.src="./dices.png";
+            }
+        </script>
+        
+    </body>
+</html>
